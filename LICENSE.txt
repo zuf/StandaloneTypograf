@@ -1,4 +1,4 @@
-Copyright (c) 2013 Alex
+Copyright (c) 2013 «Shilov Alexander»
 
 MIT License
 

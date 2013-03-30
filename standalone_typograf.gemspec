@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.version       = StandaloneTypograf::VERSION
   spec.authors       = 'Alex Shilov'
   spec.email         = 'sashapashamasha@gmail.com'
-  spec.description   = ''
-  spec.summary       = '%q{TODO: Write a gem summary}'
-  spec.homepage      = ''
+  spec.description   = "Standalone (offline) client of the ArtLebedev's Studio Typograf service."
+  spec.summary       = 'Fast&Simple'
+  spec.homepage      = 'https://github.com/shlima/StandaloneTypograf'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
