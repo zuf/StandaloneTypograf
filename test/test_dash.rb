@@ -3,7 +3,7 @@
 require 'test/unit'
 require 'standalone_typograf'
 
-class StandaloneTypografTest < Test::Unit::TestCase
+class DashTest < Test::Unit::TestCase
   def test_dasherize_left
     text = StandaloneTypograf::Typograf.new('Привет,- это длинное тире!')
     should = 'Привет,— это длинное тире!'

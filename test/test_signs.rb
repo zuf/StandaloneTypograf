@@ -11,8 +11,8 @@ class SignsTest < Test::Unit::TestCase
   end
 
   def test_no_signs
-    text = StandaloneTypograf::Typograf.new('Это чистый текст')
-    should = 'Это чистый текст'
+    text = StandaloneTypograf::Typograf.new('Это чистый текст (yes)')
+    should = 'Это чистый текст (yes)'
     assert_equal text.signs, should
   end
 
