@@ -19,4 +19,14 @@ class QuotesTest < Test::Unit::TestCase
     should = '**Один**;, **Два**;, **Три**;'
     assert_equal text.quotes, should
   end
+  def test_double_quotes_nearby
+    text = StandaloneTypograf::Typograf.new('""Гномы", - вскрикнул Бильбо", - сказал Толкиен')
+    should = '«„Гномы“, - вскрикнул Бильбо», - сказал Толкиен'
+    assert_equal text.quotes, should
+  end
+  def test_double_quotes_nearby_last
+    text = StandaloneTypograf::Typograf.new('"Привет тебе, "Путник""')
+    should = '«Привет тебе, „Путник“»'
+    assert_equal text.quotes, should
+  end
 end

@@ -40,12 +40,17 @@ module StandaloneTypograf
     #
     def build_quotes_tree(arr_text)
       quotes_tree = []
+      total = arr_text.size
       arr_text.each_with_index do |char, index|
         _next_, _prev_ = index + 1, index - 1
         # Если кавычка - первый символ в строке или за кавычкой примыкает буква,
         # то эта кавычка - открывающая.
         if char == SOURCE[:double]
           if index == 0 || (arr_text[_next_] != ' ' and arr_text[_prev_] == ' ')
+            quotes_tree << [index, :open]
+          # Ситуация с двойными кавычками идущими сразу за одинарными, например:
+          # "Привет, "Медвед"".
+          elsif arr_text[_prev_] == SOURCE[:double] and (arr_text[_next_] != ' ' and index + 1 != total)
             quotes_tree << [index, :open]
           else
             quotes_tree << [index, :close]
