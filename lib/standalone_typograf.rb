@@ -4,12 +4,14 @@ require 'standalone_typograf/version'
 require 'standalone_typograf/dasherize'
 require 'standalone_typograf/signs'
 require 'standalone_typograf/quotes'
+require 'standalone_typograf/dots'
 
 module StandaloneTypograf
   class Typograf
     include StandaloneTypograf::Dasherize
     include StandaloneTypograf::Signs
     include StandaloneTypograf::Quotes
+    include StandaloneTypograf::Dots
 
     def initialize(text, options={})
       options[:signs] ||= SIGNS
@@ -24,6 +26,7 @@ module StandaloneTypograf
       self.dasherize
       self.signs
       self.quotes
+      self.dots
       @text
     end
   end
