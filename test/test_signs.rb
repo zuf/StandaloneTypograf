@@ -17,14 +17,20 @@ class SignsTest < Test::Unit::TestCase
   end
 
   def test_signs_option
-    text = StandaloneTypograf::Typograf.new('(copy) 2013', signs: {'©' => 'copy'} )
+    text = StandaloneTypograf::Typograf.new('(copy) 2013', signs: {'[(]copy[)]' => '©'})
     should = '© 2013'
     assert_equal text.signs, should
   end
 
   def test_signs_ru_option
-    text = StandaloneTypograf::Typograf.new('(копи) 2013', signs_ru: {'&COPY;' => 'копи'} )
+    text = StandaloneTypograf::Typograf.new('(копи) 2013', signs_ru: {'[(]копи[)]' => '&COPY;'})
     should = '&COPY; 2013'
+    assert_equal text.signs, should
+  end
+
+  def test_plus_minus
+    text = StandaloneTypograf::Typograf.new('В шахматной нотации символ +- означает, что после соответствующего хода преимущество имеют белые. Малахов +1.')
+    should = 'В шахматной нотации символ ± означает, что после соответствующего хода преимущество имеют белые. Малахов +1.'
     assert_equal text.signs, should
   end
 end

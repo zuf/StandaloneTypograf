@@ -1,28 +1,26 @@
-#encoding: UTF-8
+# encoding: UTF-8
 
 module StandaloneTypograf
   module Signs
 
     SIGNS = {
-        '©' => 'c',
-        '™' => 'tm',
-        '®' => 'r',
+        '[(]c[)]' => '©',
+        '[(]tm[)]' => '™',
+        '[(]r[)]' => '®',
+        '[+][-]' => '±',
     }
     SIGNS_RU = {
-        '©' => 'с',
-        '™' => 'тм',
-        '®' => 'р',
+        '[(]с[)]' => '©',
+        '[(]тм[)]' => '™',
+        '[(]р[)]' => '®',
     }
 
     def signs
-      result = @text.clone
-      @signs.each_pair do |sign, text|
-        result.gsub!(/[(]#{text}[)]/i, sign)
+      source = @signs.merge(@signs_ru).merge(SIGNS).merge(SIGNS_RU)
+      source.each_pair do |text, sign|
+        @text = @text.gsub(/#{text}/i, sign)
       end
-      @signs_ru.each_pair do |sign, text|
-        result.gsub!(/[(]#{text}[)]/i, sign)
-      end
-      @text = result
+      @text
     end
   end
 end

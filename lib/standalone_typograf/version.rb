@@ -1,5 +1,5 @@
-#encoding: UTF-8
+# encoding: UTF-8
 
 module StandaloneTypograf
-  VERSION = '1.0.2'
+  VERSION = '2.0.0'
 end
