@@ -16,4 +16,10 @@ class FractionsTest < Test::Unit::TestCase
     should = '½ ¼'
     assert_equal text.fractions, should
   end
+
+  def test_single
+    text = StandaloneTypograf::Typograf.new('1/2')
+    should = '½'
+    assert_equal text.fractions, should
+  end
 end
