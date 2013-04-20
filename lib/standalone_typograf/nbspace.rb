@@ -28,13 +28,13 @@ module StandaloneTypograf
     # Неразрывный пробел
     def nbspace
       # Одна буква - неразрывный пробел справа
-      @text = @text.gsub(/(\s)([a-zа-яА-Я])(\s)/i, '\1'+'\2'+' ')
+      @text = @text.gsub(/(\s| )([a-zа-яА-Я])(\s| )/i, '\1'+'\2'+' ')
 
       # Двухбуквенные слова - наразрывные пробел справа
-      @text = @text.gsub(/(\s)([a-zа-яА-Я][a-zа-яА-Я])(\s)/i, '\1'+'\2'+' ')
+      @text = @text.gsub(/(\s| )([a-zа-яА-Я][a-zа-яА-Я])(\s| )/i, '\1'+'\2'+' ')
 
       # У частиц неразрывный пробел слева
-      PARTICLES.each { |p| @text = @text.gsub(/(\s)(#{p})/i, ' '+'\2') }
+      PARTICLES.each { |p| @text = @text.gsub(/(\s| )(#{p})/i, ' '+'\2') }
 
       @text
     end

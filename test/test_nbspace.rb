@@ -23,4 +23,11 @@ class NbspaceTest < Test::Unit::TestCase
     should = 'Саша якобы принес водку'
     assert_equal text.nbspace, should
   end
+
+  def test_combine
+    # впваып ваыпаыв пывап я&nbsp;за&nbsp;пивом пошел 2/3
+    text = StandaloneTypograf::Typograf.new('впваып ваыпаыв пывап я за пивом пошел 2/3')
+    should = 'впваып ваыпаыв пывап я за пивом пошел 2/3'
+    assert_equal text.nbspace, should
+  end
 end
