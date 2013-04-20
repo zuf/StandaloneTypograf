@@ -27,7 +27,7 @@ module StandaloneTypograf
     def fractions
       FRACTIONS.each_pair do |text, sign|
         #@text = @text.gsub(/#{text}/i, sign)
-        @text = @text.gsub(/(\D)([#{text[0]}][\/][#{text[2]}])(\D)/i, '\1' + sign + '\3')
+        @text = @text.gsub(/(\D|\A)([#{text[0]}][\/][#{text[2]}])(\D|\z)/i, '\1' + sign + '\3')
       end
       @text
     end

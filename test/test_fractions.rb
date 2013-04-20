@@ -10,4 +10,10 @@ class FractionsTest < Test::Unit::TestCase
     should = 'В ⅓ всей воды на планете содержится 2/10 углекислого газа. 102/303'
     assert_equal text.fractions, should
   end
+
+  def test_whitespaces
+    text = StandaloneTypograf::Typograf.new('1/2 1/4')
+    should = '½ ¼'
+    assert_equal text.fractions, should
+  end
 end
