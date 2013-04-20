@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.version       = StandaloneTypograf::VERSION
   spec.authors       = 'Alex Shilov'
   spec.email         = 'sashapashamasha@gmail.com'
-  spec.description   = "Standalone (offline) client of the ArtLebedev's Studio Typograf service."
+  spec.description   = "Standalone (offline) client of the ArtLebedev's Studio Typograf service. http://typograf.herokuapp.com"
   spec.summary       = 'Very Fast&Simple Typograf fot the Russian text.'
   spec.homepage      = 'https://github.com/shlima/StandaloneTypograf'
   spec.license       = 'MIT'
