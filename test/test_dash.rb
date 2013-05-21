@@ -21,4 +21,17 @@ class DashTest < Test::Unit::TestCase
     should = 'Яблоко есть фрукт.'
     assert_equal text.dasherize, should
   end
+  
+  def test_already_dash_dasherize_left
+    text = StandaloneTypograf::Typograf.new('Привет,— это длинное тире!')
+    should = 'Привет,— это длинное тире!'
+    assert_equal text.dasherize, should
+  end
+
+  def test_already_dash_dasherize_hyphen2
+    text = StandaloneTypograf::Typograf.new('Яблоко — это фрукт. То-то и оно.')
+    should = 'Яблоко — это фрукт. То-то и оно.'
+    assert_equal text.dasherize, should
+  end
+
 end
